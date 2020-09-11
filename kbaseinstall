@@ -1,0 +1,51 @@
+#!/bin/bash
+# Requirements: bash, git, pacman
+
+mkdir "/home/$USER/.local/"
+mkdir "/home/$USER/.local/etc/"
+mkdir "/home/$USER/.local/lib/"
+mkdir "/home/$USER/.local/share/"
+mkdir "/home/$USER/.local/src/"
+mkdir "/home/$USER/basic/"
+mkdir "/home/$USER/basic/documents/"
+mkdir "/home/$USER/basic/downloads/"
+mkdir "/home/$USER/basic/pictures/"
+mkdir "/home/$USER/basic/pictures/wallpapers/"
+mkdir "/home/$USER/basic/videos/"
+mkdir "/home/$USER/basic/projects/"
+mkdir "/home/$USER/basic/games/"
+
+echo "Welcome to kbase!" > "/home/$USER/basic/todo.txt"
+echo "
+wal -R &
+xcompmgr &
+setbg &
+while true: do
+	xsetroot -name "$(date)"
+	sleep 1s
+done &
+exec dwm" > "/home/$USER/.xinitrc"
+mv default_wallpaper.jpg "/home/$USER/basic/pictures/wallpapers/"
+
+
+cd "/home/$USER/.local/src/"
+git clone https://github.com/fatpancakes/dwm.git
+
+cd "/home/$USER/.local/"
+git clone https://github.com/fatpancakes/bin.git
+
+sudo pacman -S base-devel
+cd "/home/$USER/.local/src/"
+git clone https://aur.archlinux.org/yay.git
+cd "/home/$USER/.local/src/yay/"
+makepkg -si
+cd 
+
+yay -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn base-devel cheat-bin dmenu st-luke-git sxiv
+
+pip instal pywal
+
+setbg "/home/$USER/basic/pictures/wallpapers/default_wallpaper.jpg"
+
+cd "/home/$USER/.local/src/dwm/"
+make && sudo make clean install
