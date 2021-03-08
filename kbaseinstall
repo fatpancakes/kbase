@@ -1,6 +1,8 @@
 #!/bin/bash
 # Requirements: bash, git, pacman
 
+cd "/home/$USER/"
+
 mkdir "/home/$USER/.local/"
 mkdir "/home/$USER/.local/etc/"
 mkdir "/home/$USER/.local/lib/"
@@ -14,36 +16,29 @@ mkdir "/home/$USER/videos/"
 mkdir "/home/$USER/projects/"
 mkdir "/home/$USER/games/"
 
-echo "
-wal -R &
-xcompmgr &
-setbg &
-while true: do
-	xsetroot -name "$(date)"
-	sleep 1s
-done &
-exec dwm" > "/home/$USER/.xinitrc"
-mv default_wallpaper.jpg "/home/$USER/pictures/wallpapers/"
-
-
-cd "/home/$USER/.local/src/"
-git clone https://github.com/fatpancakes/dwm.git
-
-cd "/home/$USER/.local/"
+# Get setbg
 git clone https://github.com/fatpancakes/bin.git
+mv "bin/setbg" "/home/$USER/.local/bin/"
+chmod +x "/home/$USER/.local/bin/setbg"
+rm -rf bin
 
-sudo pacman -S base-devel
-cd "/home/$USER/.local/src/"
-git clone https://aur.archlinux.org/yay.git
-cd "/home/$USER/.local/src/yay/"
+# Get qtile config and .xinitrc
+git clone https://github.com/fatpancakes/dotfiles.git
+mv "dotfiles/.xinitrc" "/home/$USER/"
+mkdir "/home/$USER/.config/"
+mkdir "/home/$USER/.config/qtile/"
+mv "dotfiles/.config/qtile/config.py" "/home/$USER/.config/qtile/"
+
+mv "kbase/default_wallpaper.jpg" "/home/$USER/pictures/wallpapers/"
+
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
-cd 
+cd ..
+rm -rf paru
 
-yay -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn base-devel cheat-bin dmenu st-luke-git sxiv
+paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn cheat-bin dmenu sxiv qtile
 
-pip instal pywal
 
 setbg "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
-
-cd "/home/$USER/.local/src/dwm/"
-make && sudo make clean install
