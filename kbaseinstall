@@ -6,16 +6,14 @@ mkdir "/home/$USER/.local/etc/"
 mkdir "/home/$USER/.local/lib/"
 mkdir "/home/$USER/.local/share/"
 mkdir "/home/$USER/.local/src/"
-mkdir "/home/$USER/basic/"
-mkdir "/home/$USER/basic/documents/"
-mkdir "/home/$USER/basic/downloads/"
-mkdir "/home/$USER/basic/pictures/"
-mkdir "/home/$USER/basic/pictures/wallpapers/"
-mkdir "/home/$USER/basic/videos/"
-mkdir "/home/$USER/basic/projects/"
-mkdir "/home/$USER/basic/games/"
+mkdir "/home/$USER/documents/"
+mkdir "/home/$USER/downloads/"
+mkdir "/home/$USER/pictures/"
+mkdir "/home/$USER/pictures/wallpapers/"
+mkdir "/home/$USER/videos/"
+mkdir "/home/$USER/projects/"
+mkdir "/home/$USER/games/"
 
-echo "Welcome to kbase!" > "/home/$USER/basic/todo.txt"
 echo "
 wal -R &
 xcompmgr &
@@ -25,7 +23,7 @@ while true: do
 	sleep 1s
 done &
 exec dwm" > "/home/$USER/.xinitrc"
-mv default_wallpaper.jpg "/home/$USER/basic/pictures/wallpapers/"
+mv default_wallpaper.jpg "/home/$USER/pictures/wallpapers/"
 
 
 cd "/home/$USER/.local/src/"
@@ -45,7 +43,7 @@ yay -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallp
 
 pip instal pywal
 
-setbg "/home/$USER/basic/pictures/wallpapers/default_wallpaper.jpg"
+setbg "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
 
 cd "/home/$USER/.local/src/dwm/"
 make && sudo make clean install
