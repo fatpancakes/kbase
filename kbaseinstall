@@ -41,8 +41,10 @@ makepkg -si
 cd ..
 rm -rf paru
 
-paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn cheat-bin dmenu sxiv qtile pywal
+paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf python python-pip wget ttf-ms-fonts transmission-cli openvpn  dmenu sxiv qtile python-pywal alacritty
 
+paru -S brave-bin
+paru -S cheat-bin
 
 wal -i "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
 cp "/home/$USER/pictures/wallpapers/default_wallpaper.jpg" "${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
