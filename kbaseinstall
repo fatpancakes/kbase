@@ -22,6 +22,8 @@ git clone https://github.com/fatpancakes/bin.git
 mv "bin/setbg" "/home/$USER/.local/bin/"
 chmod +x "/home/$USER/.local/bin/setbg"
 rm -rf bin
+echo -e "\nPATH=~/.local/bin:$PATH" >> ~/.bash_profile
+source ~/.bash_profile
 
 # Get qtile config and .xinitrc
 git clone https://github.com/fatpancakes/dotfiles.git
@@ -39,7 +41,8 @@ makepkg -si
 cd ..
 rm -rf paru
 
-paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn cheat-bin dmenu sxiv qtile
+paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotoool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf brave-bin python python-pip wget ttf-ms-fonts transmission-cli openvpn cheat-bin dmenu sxiv qtile pywal
 
 
-setbg "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
+wal -i "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
+cp "/home/$USER/pictures/wallpapers/default_wallpaper.jpg" "${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
