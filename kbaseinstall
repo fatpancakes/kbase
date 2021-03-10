@@ -29,8 +29,6 @@ source ~/.bash_profile
 git clone https://github.com/fatpancakes/dotfiles.git
 mv "dotfiles/.xinitrc" "/home/$USER/"
 mkdir "/home/$USER/.config/"
-mkdir "/home/$USER/.config/qtile/"
-mv "dotfiles/.config/qtile/config.py" "/home/$USER/.config/qtile/"
 
 mv "kbase/default_wallpaper.jpg" "/home/$USER/pictures/wallpapers/"
 
