@@ -45,4 +45,4 @@ paru -S brave-bin
 paru -S cheat-bin
 
 wal -i "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
-cp "/home/$USER/pictures/wallpapers/default_wallpaper.jpg" "${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
+setbg "/home/$USER/pictures/wallpapers/default_wallpaper.jpg"
