@@ -16,6 +16,7 @@ makepkg -si --noconfirm
 cd ..
 rm -rf paru
 
-paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf python python-pip wget  transmission-cli openvpn  dmenu sxiv qtile kitty gnu-free-fonts --noconfirm
+paru -S xorg-server xorg-xinit xorg-xwininfo xorg-font-util xdotool xclip xwallpaper xcompmgr arandr neovim mpv man zathura zathura-pdf-mupdf python python-pip wget  transmission-cli openvpn  dmenu sxiv qtile kitty nitrogen gnu-free-fonts picom --noconfirm
+
 
 paru -S brave-bin --noconfirm
