@@ -9,8 +9,6 @@ mv "dotfiles/.xinitrc" "/home/$USER/"
 mkdir "/home/$USER/.config/qtile/"
 mv "dotfiles/config.py" "/home/$USER/.config/qtile/"
 
-mv "kbase/default_wallpaper.jpg" "/home/$USER/pictures/wallpapers/"
-
 sudo pacman -S --needed --noconfirm base-devel
 git clone https://aur.archlinux.org/paru.git
 cd paru
